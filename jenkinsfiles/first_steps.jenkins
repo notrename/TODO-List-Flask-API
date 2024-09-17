@@ -3,7 +3,10 @@
 
 pipeline {
     agent {
-        label 'master'
+        docker {
+            image 'python:3'
+            label 'master'
+        }
     }
     options {
         buildDiscarder(logRotator(numToKeepStr: '10', artifactNumToKeepStr: '10'))
