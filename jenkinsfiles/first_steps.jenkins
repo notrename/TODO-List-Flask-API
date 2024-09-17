@@ -12,7 +12,7 @@ pipeline {
     stages{
         stage("Run py") {
             steps {
-                sh 'apt install python3 -y'
+                sh 'sudo apt install python3 -y'
                 sh 'python main.py'
             }
         }
