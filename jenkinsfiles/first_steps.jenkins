@@ -10,9 +10,10 @@ pipeline {
         timestamps()
     }
     stages{
-        stage("Preparations") {
+        stage("Run py") {
             steps {
-                ls -l
+                sh 'ls -l'
+                sh 'main.py'
             }
         }
     }
