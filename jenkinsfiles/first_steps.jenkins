@@ -12,7 +12,7 @@ pipeline {
     stages{
         stage("Preparations") {
             steps {
-                python3 main.py
+                ls -l
             }
         }
     }
