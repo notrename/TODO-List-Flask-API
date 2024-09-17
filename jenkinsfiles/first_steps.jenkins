@@ -12,8 +12,7 @@ pipeline {
     stages{
         stage("Run py") {
             steps {
-                sh 'sudo apt-get install python3 -y'
-                sh 'python main.py'
+                sh 'docker --version'
             }
         }
     }
