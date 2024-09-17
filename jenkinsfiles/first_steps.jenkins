@@ -3,7 +3,7 @@
 
 pipeline {
     agent {
-        label 'main'
+        label 'master'
     }
     options {
         buildDiscarder(logRotator(numToKeepStr: '10', artifactNumToKeepStr: '10'))
