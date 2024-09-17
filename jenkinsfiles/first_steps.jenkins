@@ -1,0 +1,19 @@
+#!groovy
+// check run project
+
+pipeline {
+    agent {
+        label 'main'
+    }
+    option {
+        buildDiscarder(logRotator(numToKeepStr: '10', artifactNumToKeepStr: '10'))
+        timestamps()
+    }
+    stages{
+        stage("Preparations") {
+            steps {
+                echo 'test'
+            }
+        }
+    }
+}
