@@ -9,10 +9,10 @@ pipeline {
         buildDiscarder(logRotator(numToKeepStr: '10', artifactNumToKeepStr: '10'))
         timestamps()
     }
-    stages{
-        stage("Run py") {
+    stages {
+        stage('Test') {
             steps {
-                sh 'docker --version'
+                sh 'python3 main.py'
             }
         }
     }
