@@ -1,1 +1,2 @@
-print('test hello jenkins')
+import datetime
+print(datetime.datetime.now().strftime('%H:%M:%S'))
