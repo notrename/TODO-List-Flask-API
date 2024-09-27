@@ -1,0 +1,42 @@
+version: '3.9'
+
+services:
+  jenkins:
+    image: jenkins/jenkins:lts
+    container_name: my-jenkins
+    user: root
+    ports:
+      - "8080:8080"
+    volumes:
+      - jenkins_home:/var/jenkins_home
+    networks:
+      - cicd_network
+  postgres:
+    image: postgres:13.2
+    restart: always
+    environment:
+      - POSTGRES_USER=${DB_USER}
+      - POSTGRES_PASSWORD=${DB_PASS}
+      - POSTGRES_DB=${DB_NAME}
+    volumes:
+      - busy_db:/var/postgresql/data
+    ports:
+      - "5432:5432"
+    healthcheck:
+      test: pg_isready -U postgres
+      interval: 3s
+      timeout: 2s
+      retries: 4
+    networks:
+      - custom_network
+
+volumes:
+  jenkins_home:
+    external: true
+    name: jenkins_home
+  busy_db:
+
+networks:
+    cicd_network:
+        driver: bridge
+    custom_network:
