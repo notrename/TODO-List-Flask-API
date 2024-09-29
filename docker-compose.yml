@@ -13,6 +13,7 @@ services:
       - cicd_network
   postgres:
     image: postgres:13.2
+    container_name: todo_api_postgres
     restart: always
     environment:
       - POSTGRES_USER=${DB_USER}

@@ -21,3 +21,5 @@ def get_db_url():
         f'postgresql+asyncpg://{settings.DB_USER}:{settings.DB_PASS}@'
         f'{settings.DB_HOST}:{settings.DB_PORT}/{settings.DB_NAME}'
     )
+
+print(get_db_url())
