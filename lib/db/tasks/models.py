@@ -1,8 +1,8 @@
 from datetime import datetime
+from sqlalchemy import func
+from sqlalchemy.orm import Mapped, mapped_column
 
-from sqlalchemy.orm import Mapped
-
-from lib.db.db_controller import Base, int_pk
+from lib.db.db_controller import Base, int_pk, creation_datetime_at
 
 
 class Tasks(Base):
@@ -10,9 +10,9 @@ class Tasks(Base):
     name: Mapped[str]
     description: Mapped[str]
     priority: Mapped[str]
-    creation_datetime: Mapped[datetime]
+    creation_datetime: Mapped[creation_datetime_at]
     deadline: Mapped[datetime]
-    done: Mapped[bool]
+    done: Mapped[bool] = mapped_column(default=False)
 
     def __str__(self):
         return (
