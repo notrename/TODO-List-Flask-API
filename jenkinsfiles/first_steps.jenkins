@@ -10,10 +10,13 @@ pipeline {
         timestamps()
     }
     stages {
-        stage('Test') {
+        stage('Start flask app') {
             steps {
                 sh 'python3 main.py'
             }
+        },
+        stage('Run tests'){
+            sh 'pytest -v'
         }
     }
 }
