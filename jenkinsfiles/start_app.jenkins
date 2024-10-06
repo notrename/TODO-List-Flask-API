@@ -12,7 +12,7 @@ pipeline {
 
                     // Активируем виртуальное окружение
                     sh '. venv/bin/activate'
-                    sh 'cd venv/bin/'
+                    sh 'cd /venv/bin/'
                     sh 'ls -l'
 
                     // Устанавливаем зависимости
