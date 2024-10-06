@@ -6,8 +6,8 @@ pipeline {
     stages {
         stage('build image') {
             steps {
-                sh 'docker-compose up -d postgres'
                 sh 'pip install -r requirements.txt'
+                sh 'docker-compose up -d postgres'
                 sh 'docker-compose down'
             }
         }
