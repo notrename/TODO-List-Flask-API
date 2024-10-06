@@ -16,7 +16,7 @@ pipeline {
                     sh 'ls -l'
 
                     // Устанавливаем зависимости
-                    sh 'pip install requests'
+                    sh 'python3 -m pip install -r requirements.txt'
                 }
             }
         }
