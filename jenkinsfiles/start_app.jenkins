@@ -12,11 +12,9 @@ pipeline {
 
                     // Активируем виртуальное окружение
                     sh '. venv/bin/activate'
-                    sh 'cd /venv'
-                    sh 'ls -l'
 
                     // Устанавливаем зависимости
-                    sh '/venv/bin/pip install -r requirements.txt'
+                    sh '/var/jenkins_home/workspace/test/venv/bin/pip install -r requirements.txt'
                 }
             }
         }
