@@ -14,8 +14,7 @@ pipeline {
                     sh '. venv/bin/activate'
 
                     // Устанавливаем зависимости
-                    sh 'pip install --upgrade pip &&
-                        pip install -r requirements.txt'
+                    sh 'pip install --upgrade pip && pip install -r requirements.txt'
                 }
             }
         }
