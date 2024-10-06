@@ -6,17 +6,9 @@ pipeline {
     stages {
         stage('build image') {
             steps {
-                docker.build('')
-            }
-        }
-        stage('Start flask app') {
-            steps {
-                sh 'python3 main.py'
-            }
-        }
-        stage('Run tests'){
-            steps {
-                sh 'pytest -v'
+                sh 'docker-compose up -d postgres'
+                sh 'pip install -r requirements.txt'
+                sh 'docker-compose down'
             }
         }
     }
