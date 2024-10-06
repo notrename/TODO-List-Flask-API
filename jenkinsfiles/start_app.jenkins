@@ -13,6 +13,8 @@ pipeline {
                     // Активируем виртуальное окружение
                     sh '. venv/bin/activate'
 
+                    sh 'ls -l'
+
                     // Устанавливаем зависимости
                     sh 'pip install --upgrade pip && pip install -r requirements.txt'
                 }
