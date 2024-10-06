@@ -6,6 +6,8 @@ pipeline {
     stages {
         stage('build image') {
             steps {
+                sh 'python3 -m venv venv'
+                sh 'source /bin/Scripts/activate'
                 sh 'pip install -r requirements.txt'
                 sh 'docker-compose up -d postgres'
                 sh 'docker-compose down'
