@@ -1,16 +1,6 @@
 version: '3.9'
 
 services:
-  jenkins:
-    image: jenkins/jenkins:lts
-    container_name: my-jenkins
-    user: root
-    ports:
-      - "8080:8080"
-    volumes:
-      - jenkins_home:/var/jenkins_home
-    networks:
-      - cicd_network
   postgres:
     image: postgres:13.2
     container_name: todo_api_postgres
@@ -32,12 +22,7 @@ services:
       - custom_network
 
 volumes:
-  jenkins_home:
-    external: true
-    name: jenkins_home
   busy_db:
 
 networks:
-    cicd_network:
-        driver: bridge
-    custom_network:
+  custom_network:

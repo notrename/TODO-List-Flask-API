@@ -2,17 +2,11 @@
 // check run project
 
 pipeline {
-    agent {
-        label 'master'
-    }
-    options {
-        buildDiscarder(logRotator(numToKeepStr: '10', artifactNumToKeepStr: '10'))
-        timestamps()
-    }
+    agent any
     stages {
-        stage('install requirements') {
+        stage('build image') {
             steps {
-                sh 'pip install -r requirements.txt'
+                docker.build('')
             }
         }
         stage('Start flask app') {
