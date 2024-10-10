@@ -1,12 +1,8 @@
-Test project to study the creation of an API service using the example of to do list.
-Libraries used:
+Test project to study the creation of an API service using the example of to do list.  
 
-Flask[async]
-
-SQLAlchemy
-
-alembic
-
-pydantic
-
-pydantic-settings
+Libraries used:  
+- Flask[async]
+- SQLAlchemy
+- alembic
+- pydantic
+- pydantic-settings
