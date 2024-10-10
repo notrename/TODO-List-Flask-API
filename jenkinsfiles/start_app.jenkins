@@ -4,20 +4,6 @@
 pipeline {
     agent any
     stages {
-        stage('Install Dependencies') {
-            steps {
-                script {
-                    // Создаем виртуальное окружение
-                    sh 'python3 -m venv venv'
-
-                    // Активируем виртуальное окружение
-                    sh '. venv/bin/activate'
-
-                    // Устанавливаем зависимости
-                    sh '/var/jenkins_home/workspace/test/venv/bin/pip install -r requirements.txt'
-                }
-            }
-        }
         stage('build image') {
             steps {
                 sh '. venv/bin/activate && docker-compose up -d postgres'
